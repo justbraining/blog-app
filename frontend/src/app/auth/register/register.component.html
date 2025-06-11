@@ -1,0 +1,55 @@
+<div class="register-container">
+  <form #registerForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+    <h2>Register</h2>
+
+    <!-- Username -->
+    <label for="username">Username</label>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      required
+      minlength="3"
+      [(ngModel)]="username"
+      #usernameRef="ngModel"
+    />
+    <div class="error" *ngIf="usernameRef.invalid && usernameRef.touched">
+      Username must be at least 3 characters.
+    </div>
+
+    <!-- Password -->
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      required
+      minlength="8"
+      [(ngModel)]="password"
+      #passwordRef="ngModel"
+    />
+    <div class="error" *ngIf="passwordRef.invalid && passwordRef.touched">
+      Password must be at least 8 characters.
+    </div>
+
+    <!-- Confirm Password -->
+    <label for="confirmPassword">Confirm Password</label>
+    <input
+      type="password"
+      id="confirmPassword"
+      name="confirmPassword"
+      required
+      [(ngModel)]="confirmPassword"
+      #confirmPasswordRef="ngModel"
+    />
+    <div class="error" *ngIf="confirmPassword !== password && confirmPassword">
+      Passwords do not match.
+    </div>
+
+    <button type="submit" [disabled]="registerForm.invalid">Register</button>
+
+    <p class="toggle-link">
+      Already have an account? <a routerLink="/login">Login</a>
+    </p>
+  </form>
+</div>

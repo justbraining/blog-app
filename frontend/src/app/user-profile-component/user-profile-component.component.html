@@ -1,0 +1,25 @@
+<div class="profile-image-container">
+  <!-- Display the selected image or fallback to default -->
+  <img [src]="imagePreview || 'assets/default-user.png'" alt="User Image" class="profile-image" />
+  <input type="file" (change)="onImageSelected($event)" class="file-input" />
+</div>
+
+<div class="profile-container">
+  <h2>User Profile</h2>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <label>Username</label>
+    <input formControlName="username" type="text" />
+    <div *ngIf="profileForm.get('username')?.invalid && profileForm.get('username')?.touched">
+      Username must be at least 3 characters
+    </div>
+    
+    <label>New Password (optional)</label>
+    <input formControlName="password" type="password" />
+    <div *ngIf="profileForm.get('password')?.invalid && profileForm.get('password')?.touched">
+      Password must be at least 8 characters
+    </div>
+    
+    <button type="submit" [disabled]="profileForm.invalid">Update</button>
+    <p *ngIf="successMsg">{{ successMsg }}</p>
+  </form>
+</div>

@@ -1,0 +1,16 @@
+<div class="editor-container">
+    <label>Title:</label>
+    <input type="text" [(ngModel)]="title" (ngModelChange)="titleChange.emit($event)" />
+  
+    <label>Content:</label>
+    <textarea [(ngModel)]="content" (ngModelChange)="contentChange.emit($event)"></textarea>
+  
+    <button (click)="togglePreview()">
+      {{ previewMode ? 'Edit Mode' : 'Preview Markdown' }}
+    </button>
+  
+    <div *ngIf="previewMode" class="preview">
+      <markdown [data]="content"></markdown>
+    </div>
+  </div>
+  

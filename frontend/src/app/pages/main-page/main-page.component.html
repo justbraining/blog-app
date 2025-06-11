@@ -1,0 +1,65 @@
+<header class="main-header">
+  <div class="left-section">Daily Blogs</div>
+  <div class="right-section">
+    <button (click)="goToAdminPanel()">Get Started</button>
+    <!--<button class="logout-icon" (click)="logout()">
+      <i class="fas fa-sign-out-alt"></i>
+    </button>-->
+  </div>
+</header>
+
+<!-- Search Bar -->
+<div class="search-container">
+  <div class="search-wrapper">
+    <i class="fas fa-search search-icon"></i>
+    <input
+      [(ngModel)]="searchQuery"
+      (input)="filterBlogs()"
+      placeholder="Search blogs..."
+      class="search-input"
+    />
+    <i
+      *ngIf="searchQuery"
+      class="fas fa-times clear-icon"
+      (click)="clearSearch()"
+    ></i>
+  </div>
+</div>
+
+<!-- Blog Grid Layout -->
+<div class="blog-grid">
+  <div *ngFor="let blog of filteredBlogs" class="blog-card">
+    <!-- Image Preview -->
+    <img
+      *ngIf="blog.coverImage"
+      [src]="'http://localhost:3000/uploads/' + blog.coverImage"
+      alt="Blog Image"
+      class="blog-media"
+    />
+
+    <!-- Video Preview -->
+    <video
+      *ngIf="!blog.coverImage && blog.video"
+      [src]="'http://localhost:3000/uploads/' + blog.video"
+      controls
+      class="blog-media"
+    ></video>
+
+    <!-- Blog Content -->
+    <div class="blog-content">
+      <h3>{{ blog.title }}</h3>
+      <p [innerHTML]="blog.content | slice:0:150"></p>
+      <a [routerLink]="['/blog', blog._id]" class="read-more">Read more →</a>
+    </div>
+  </div>
+</div>
+
+<!-- Subscription Form -->
+<div class="subscribe-section">
+  <app-subscribe-form></app-subscribe-form>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  © {{ currentYear }} Blog . All rights reserved.
+</footer>

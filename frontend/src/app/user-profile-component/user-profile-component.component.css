@@ -1,0 +1,118 @@
+/* Container for the whole profile update page */
+.profile-container {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    color: #111;
+  }
+  
+  /* Title styling */
+  .profile-container h2 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+    color: #000;
+  }
+  
+  /* Label styling */
+  label {
+    display: block;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-bottom: 6px;
+    font-size: 15px;
+    color: #333;
+  }
+  
+  /* Input styling */
+  input[type="text"],
+  input[type="password"],
+  input[type="file"] {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fafafa;
+    color: #111;
+    box-sizing: border-box;
+  }
+  
+  input:focus {
+    border-color: #999;
+    outline: none;
+    background-color: #fff;
+  }
+  
+  /* Button styling */
+  button {
+    margin-top: 30px;
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    background-color: #111;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+  }
+  
+  button:hover:not(:disabled) {
+    background-color: #000;
+  }
+  
+  /* Error and success messages */
+  div[ngIf] {
+    color: #c00;
+    font-size: 13px;
+    margin-top: 5px;
+  }
+  
+  p {
+    margin-top: 20px;
+    color: #006400;
+    font-weight: 500;
+    text-align: center;
+  }
+  
+  /* Profile image container */
+  .profile-image-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Profile image styling */
+  .profile-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    margin-bottom: 10px;
+  }
+  
+  /* File input styling */
+  .file-input {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    display: block;
+    margin-bottom: 1rem;
+    padding: 0.3rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  

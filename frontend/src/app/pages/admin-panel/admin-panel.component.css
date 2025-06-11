@@ -1,0 +1,226 @@
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background: #fff;
+  color: #111;
+}
+
+/* Side Navigation */
+.sidenav {
+  width: 220px;
+  background: #000;
+  padding: 20px;
+  border-right: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidenav button {
+  background: #000;
+  border: none;
+  padding: 12px;
+  margin-bottom: 10px;
+  text-align: left;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.sidenav button:hover,
+.sidenav button.active {
+  background: #9c9999;
+  font-weight: bold;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  width: 80%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 600px;
+}
+
+form input,
+form textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+/* Blog List */
+.blog-list {
+  margin-top: 20px;
+}
+
+.blog-item {
+  border-bottom: 1px solid #000;
+  padding: 10px 0;
+}
+
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-row h3 {
+  margin: 0;
+}
+
+.icons i {
+  margin-left: 15px;
+  font-size: 1.4rem;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.icons i:hover {
+  color: #000;
+}
+
+.subscriptions-list {
+  margin-top: 20px;
+}
+
+.blog-list {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.blog-list th, .blog-list td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+.blog-list th.actions,
+.blog-list td.actions {
+  text-align: right;
+}
+
+.blog-list i {
+  cursor: pointer;
+  margin-left: 15px;
+  font-size: 1rem;
+  color: #333;
+  transition: color 0.2s;
+}
+
+.blog-list i:hover {
+  color: #000;
+}
+
+.form-title {
+  align-self: flex-start;
+  margin-bottom: 20px;
+}
+
+.content-box {
+  background: #f7f7f7;
+  padding: 30px;
+  border: 1px solid #e4e4e4;
+  border-radius: 12px;
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto; /* Center the box */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+.admin-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #eceaea;
+  color: #080808;
+  padding: 10px;
+  border-bottom: 1px solid #111;
+}
+
+.admin-panel-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.user-info {
+  position: relative;
+  cursor: pointer;
+}
+
+.user-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  background: #fff;
+  color: #000;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  min-width: 180px;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.dropdown-menu p {
+  margin: 6px 0;
+}
+
+.dropdown-menu button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  background: #000;
+  color: #fff;
+  border: none;
+  margin-top: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.dropdown-menu button:hover {
+  background: #444;
+}
+
+/* Rest of your admin-panel styles follow here (sidenav, content-box, blog list etc.) */
+.profile-update-link {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.profile-update-link:hover {
+  background-color: #333;
+}

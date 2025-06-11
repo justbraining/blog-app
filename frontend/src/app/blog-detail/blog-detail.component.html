@@ -1,0 +1,13 @@
+<div class="blog-detail" *ngIf="blog">
+  <h1>{{ blog.title }}</h1>
+  <p class="date">{{ blog.createdAt | date: 'medium' }}</p>
+
+  <!-- Blog Cover Image -->
+  <img *ngIf="blog.coverImage"
+       [src]="'http://localhost:3000/uploads/' + blog.coverImage"
+       alt="Cover Image"
+       class="cover-image" />
+
+  <!-- Blog Content in Markdown -->
+  <markdown [data]="blog.content"></markdown>
+</div>

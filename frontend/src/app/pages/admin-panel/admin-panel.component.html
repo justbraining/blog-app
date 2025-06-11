@@ -1,0 +1,94 @@
+<div class="admin-panel-header">
+  <h1>Admin Panel</h1>
+  <div class="user-info" (click)="toggleDropdown()">
+    <img [src]="user.photo" alt="User Photo" class="user-icon" />
+
+
+    <div class="dropdown-menu" *ngIf="showDropdown">
+      <p><strong>{{ user.username }}</strong></p>
+      <p>{{ user.email }}</p>
+      <button routerLink="/profile" class="profile-update-btn">
+        Update Profile
+      </button>
+      
+
+      <button (click)="logout()">Logout</button>
+    </div>
+  </div>
+</div>
+
+<!-- EXISTING ADMIN PANEL BELOW -->
+
+<div class="admin-container">
+  <!-- Side Navigation -->
+  <div class="sidenav">
+    <button (click)="switchView('add')" [class.active]="currentView === 'add'">Add Blog</button>
+    <button (click)="switchView('list')" [class.active]="currentView === 'list'">Blog List</button>
+    <button (click)="switchView('subscriptions')" [class.active]="currentView === 'subscriptions'">Subscriptions</button>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+
+    <!-- Add Blog View -->
+    <div class="main-content add-blog" *ngIf="currentView === 'add'">
+      <div class="content-box">
+        <h2>Add Blog</h2>
+        <form [formGroup]="blogForm" (ngSubmit)="submitBlog()" enctype="multipart/form-data">
+          <input formControlName="title" placeholder="Title" />
+          <textarea formControlName="content" placeholder="Content"></textarea>
+
+          <label>Cover Image:</label>
+          <input type="file" (change)="onImageSelected($event)" accept="image/*" />
+          <img *ngIf="imagePreview" [src]="imagePreview" width="150" />
+
+          <label>Video:</label>
+          <input type="file" (change)="onVideoSelected($event)" accept="video/*" />
+          <video *ngIf="videoPreview" [src]="videoPreview" controls width="200"></video>
+
+          <button type="submit">{{ editingId ? 'Update' : 'Create' }} Blog</button>
+          <button *ngIf="editingId" type="button" (click)="cancelEdit()">Cancel</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Blog List View -->
+    <div *ngIf="currentView === 'list'" class="blog-list">
+      <div class="content-box">
+        <h2>Blog List</h2>
+        <div class="blog-item" *ngFor="let blog of blogs">
+          <div class="title-row">
+            <h3>{{ blog.title }}</h3>
+            <div class="icons">
+              <i class="fa fa-edit" (click)="editBlog(blog)"></i>
+              <i class="fa fa-trash" (click)="deleteBlog(blog._id)"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subscriptions View -->
+    <div *ngIf="currentView === 'subscriptions'" class="subscriptions-list">
+      <div class="content-box">
+        <h2>Subscribers</h2>
+        <table class="blog-list">
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th class="actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let subscription of subscriptions">
+              <td>{{ subscription.email }}</td>
+              <td class="actions">
+                <i class="fa fa-times" (click)="deleteSubscription(subscription._id)" title="Unsubscribe"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
